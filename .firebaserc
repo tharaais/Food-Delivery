@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "syriatel-angular-restautant": {
+      "hosting": {
+        "seed": [
+          "syriatel-angular-restautant"
+        ]
+      }
+    }
+  }
+}

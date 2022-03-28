@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+.jumbotron-fluid {
+  background: url("../../../assets/mehshe.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+p.custom {
+  font-size: 7rem;
+  font-family: 'Rock Salt', cursive;
+  font-weight: bold;
+  font-style: italic;
+}

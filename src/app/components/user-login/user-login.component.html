@@ -1,0 +1,44 @@
+<!-- <div class="jumbotron-fluid text-center p-5">
+  <p class="custom">
+    Syriatel Food Delivery
+  </p>
+  <p class="custom">
+    New APP
+  </p>
+</div> -->
+
+<div class="container align-content-center justify-content-center p-5">
+  <!-- Default form login -->
+  <form novalidate [formGroup]="loginForm" (ngSubmit) = "onSubmit()" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4"><i class="fas fa-heart" style ="color: red;"></i>
+                        <i class="fas fa-heart" style ="color: red;"></i>
+                        Welcome to Syriatel Food Delivery App
+                        <i class="fas fa-heart" style ="color: red;"></i>
+                        <i class="fas fa-heart" style ="color: red;"></i></p>
+    <p class="h4 mb-4">Please, Login in to enjoy our website services</p>
+    <p *ngIf="errorMsgUser != ''" class="text-center text-danger font-weight-bold">{{errorMsgUser}}</p>
+    <!-- Email -->
+    <input formControlName="email" type="email"  id="defaultLoginFormEmail" class="form-control mb-1" placeholder="E-mail" required email>
+    <p class = "font-weight-bold text-danger" *ngIf="formErrors.email">{{formErrors.email}}</p>
+
+    <!-- Password -->
+    <input formControlName="password" type="password" id="defaultLoginFormPassword" class="form-control mb-1 mt-3" placeholder="Password" required pattern>
+    <p class = "font-weight-bold text-danger" *ngIf="formErrors.password">{{formErrors.password}}</p>
+
+    <!-- Remember ME -->
+    <div class="custom-control custom-checkbox">
+      <input formControlName="remember" type="checkbox" class="custom-control-input" id="defaultUnchecked">
+      <label class="custom-control-label" for="defaultUnchecked">Remember Me?</label>
+    </div>
+
+    <!-- Sign in button -->
+    <button [disabled]="!loginForm.valid" class="btn btn-danger btn-block my-4" type="submit">Login in</button>
+
+    <!-- Register -->
+    <p>Not a member?
+        <a [routerLink]="['/signup']">Register</a>
+    </p>
+  </form>
+  <!-- Default form login -->
+</div>

@@ -1,0 +1,30 @@
+<div class=" my-5 py-5 container text-center stylish-color-dark font-weight-bold text-white color-block">
+  <p class="h4 mb-4" style="font-weight: bold;">Meal Request</p>
+  <form *ngIf="restaurant.Meals"  (ngSubmit)="SaveMealRequest(mealRequest)">
+      <p  *ngIf="restaurant" >{{restaurant.RestaurantName}} Restaurant</p>
+      <p  *ngIf="invitation" >Invitation by {{invitation.InitiatorName}}</p>
+
+
+     <table class="table " style="background-color: gray">
+         <thead>
+             <th>Meal Name</th>
+             <th>Meal Description</th>
+             <th>Meal Price</th>
+             <th>Meal Count</th>
+             <th>Sub Price</th>
+         </thead>
+         <tbody>
+             <tr *ngFor="let meal of restaurant.Meals">
+                 <td>{{meal.MealName}}</td>
+                 <td>{{meal.Description}}</td>
+                 <td>{{meal.Price}}</td>
+                 <td><input ([ngModel])="meal.Count" min="0" (change)="selectt(count.value , meal)"  #count  type="number"></td>
+                 <td>{{meal.Price*meal.Count}}</td>
+             </tr>
+         </tbody>
+     </table>
+      <br>
+      <span *ngIf="mealRequest.TotalPrice">{{mealRequest.TotalPrice}}</span>
+      <button  class="btn btn-elegant" type="submit" ><i class="far fa-kiss-wink-heart fa-lg pr-2" aria-hidden="true"></i>Save</button>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+<div class="invitation-div my-5 py-5 container text-center stylish-color-dark font-weight-bold text-white color-block">
+  <p>Invitation Details: </p>
+  <p> Initiator Name : {{myParam.params.InitiatorName}}</p>
+  <p>People Invited: {{myParam.params.PeopleGroup | json}}</p>
+  <p>Restaurant Name: {{myParam.params.RestaurantName}}</p>
+  <p>Related Comment: {{myParam.params.Comment}}</p>
+  <p>Invitation Accepted: {{myParam.params.Accepted}}</p>
+  <br><br>
+  <a [routerLink]="['/profile/mealRequest',myParam.params]" type="button" class="btn btn-elegant"><i class="far fa-kiss-wink-heart fa-lg pr-2" aria-hidden="true"></i>Accept</a>
+  <button (click)="Decline()" type="button" class="btn btn-elegant"><i class="far fa-frown fa-lg pr-2" aria-hidden="true"></i>Decline</button>
+</div>

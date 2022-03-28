@@ -1,0 +1,5 @@
+a.dropdown-item:hover {
+  background-color: brown;
+  color: wheat;
+  font-weight: bold;
+}

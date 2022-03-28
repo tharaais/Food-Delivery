@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+.jumbotron-fluid {
+  background: url("https://firebasestorage.googleapis.com/v0/b/syriatel-angular-restautant.appspot.com/o/mehshe.jpg?alt=media&token=fedc8c7d-90fa-416a-a7a1-89d3636b6fba");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+p.custom {
+  font-size: 7rem;
+  font-family: 'Rock Salt', cursive;
+  font-weight: bold;
+  font-style: italic;
+}

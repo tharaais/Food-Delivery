@@ -1,0 +1,140 @@
+<div class="container-fluid justify-content-center mb-5 py-5">
+  <div class="row row-content justify-content-center">
+    <div class="col-12 text-center justify-content-center">
+      <h1>Follow Me Step by Step, I will help you my bro!</h1>
+      <label class="h3" for="rest">Please, choose the restaurant you wanna manage:</label>
+      <br>
+      <select (change)="ReadRest(rest.value)" #rest name="" id="rest">
+        <option *ngFor="let item of Restaurants" value={{item.RestaurantName}}>{{item.RestaurantName}}</option>
+      </select>
+      <button class="btn btn-primary ml-3" data-toggle="modal" data-target="#modalAddRestaurant">ADD RESTAURANT</button>
+      <br>
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of Meals">
+          <span class="mr-2">Meal Name: {{item.MealName}}</span>
+          <span class="mr-3">Price: {{item.Price}} SYP</span>
+          <button class="btn btn-primary mr-3" id="btn{{item.ID}}">EDIT</button>
+          <button class="btn btn-primary" data-toggle="modal" data-target="#modalConfirmDelete">DELETE</button>
+        </li>
+      </ul>
+      <button data-toggle="modal" data-target="#modalAddMeal" class="btn btn-primary">ADD MEAL</button>
+    </div>
+  </div>
+</div>
+
+
+<!--Modal: modalConfirmDelete-->
+<div class="modal fade" id="modalConfirmDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <!--Content-->
+    <div class="modal-content text-center">
+      <!--Header-->
+      <div class="modal-header d-flex justify-content-center">
+        <p class="heading">Are you sure?</p>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+
+        <i class="fas fa-times fa-4x animated rotateIn"></i>
+
+      </div>
+
+      <!--Footer-->
+      <div class="modal-footer flex-center">
+        <button class="btn btn-outline-danger">Yes</button>
+        <button class="btn btn-danger waves-effect" data-dismiss="modal">No</button>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: modalConfirmDelete-->
+
+
+<!-- MODAL ADD RESTAURANT -->
+<div class="modal fade" id="modalAddRestaurant" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">ADD RESTAURANT:</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-utensils prefix grey-text"></i>
+          <input [(ngModel)]="SavedRestaurant.RestaurantName" type="text" id="orangeForm-name" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-name">Restaurant Name</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-map-marker-alt prefix grey-text"></i>
+          <input [(ngModel)]="SavedRestaurant.Address" type="text" id="orangeForm-address" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-address">Restaurant Address</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-blender-phone prefix grey-text"></i>
+          <input [(ngModel)]="SavedRestaurant.Phone" type="text" id="orangeForm-phone" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-phone">Restaurant Phone</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-hamburger prefix grey-text"></i>
+          <input type="text" id="orangeForm-meal" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-meal">Restaurant Meals</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button (click)="SaveRestaurant()" class="btn btn-deep-orange">SAVE</button>
+        <button type="button" class="btn btn-deep-orange" data-dismiss="modal" aria-label="Close">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL ADD RESTAURANT -->
+
+
+
+<!-- MODAL ADD Meal -->
+<div class="modal fade" id="modalAddMeal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">ADD MEAL:</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-signature prefix text-grey"></i>
+          <input [(ngModel)]="SavedMeal.MealName" type="text" id="orangeForm-Mealname" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-Mealname">Meal Name</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-edit prefix text-grey"></i>
+          <input [(ngModel)]="SavedMeal.Description" type="text" id="orangeForm-desc" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-desc">Meal Description</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-hand-holding-usd prefix text-grey"></i>
+          <input [(ngModel)]="SavedMeal.Price" type="text" id="orangeForm-price" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-price">Meal Price</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button (click)="SaveMeal()" class="btn btn-deep-orange">SAVE</button>
+        <button type="button" class="btn btn-deep-orange" data-dismiss="modal" aria-label="Close">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL ADD MEAL -->

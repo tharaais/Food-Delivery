@@ -1,0 +1,22 @@
+<!-- <img src="https://firebasestorage.googleapis.com/v0/b/syriatel-angular-restautant.appspot.com/o/PreviewImage13696?alt=media&token=6ab179ef-324a-4239-806f-be39a720ae92"
+     alt="Admin Login" width="100%"> -->
+<div class="container align-content-center justify-content-center p-5">
+  <!-- Default form login -->
+  <form novalidate [formGroup]="loginForm" (ngSubmit) = "onSubmit()" class="text-center border border-light p-5">
+
+    <p class="h4 mb-4">Please, Login your admin credentials to use the full website management system</p>
+    <p *ngIf="errorMsgAdmin != ''" class="text-center text-danger font-weight-bold">{{errorMsgAdmin}}</p>
+    <!-- Email -->
+    <input formControlName="email" type="email"  id="defaultLoginFormEmail" class="form-control mb-1" placeholder="E-mail" required email>
+    <p class = "font-weight-bold text-danger" *ngIf="formErrors.email">{{formErrors.email}}</p>
+
+    <!-- Password -->
+    <input formControlName="password" type="password" id="defaultLoginFormPassword" class="form-control mb-1 mt-3" placeholder="Password" required pattern>
+    <p class = "font-weight-bold text-danger" *ngIf="formErrors.password">{{formErrors.password}}</p>
+
+    <!-- Sign in button -->
+    <button [disabled]="!loginForm.valid" class="btn btn-danger btn-block my-4" type="submit">Login in</button>
+  </form>
+  <!-- Default form login -->
+</div>
+
